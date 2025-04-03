@@ -7,6 +7,8 @@ on:
 
 jobs:
   echo:
+    outputs:
+      wisper: true
     runs-on:
       - ubuntu-latest
     steps:
@@ -14,4 +16,6 @@ jobs:
 
 
   call-action:
+    needs: echo
+    if: ${{ needs.echo.outputs.wisper }}
     uses: ./.github/workflows/call_a.yaml
