@@ -6,5 +6,12 @@ on:
       - main
 
 jobs:
+  echo:
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - run: echo "I'm caller and i want to call A"
+
+
   call-action:
     uses: ./.github/workflows/call_a.yaml
