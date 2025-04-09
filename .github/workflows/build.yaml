@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   build:
     runs-on:
@@ -35,9 +39,8 @@ jobs:
       - release-please-release
     steps:
       - id: release-pr
-        uses: googleapis/release-please-action@main
+        uses: googleapis/release-please-action@v4
         with:
           token: ${{ github.token }}
           release-type: simple
-          fork: true
           skip-github-release: true
